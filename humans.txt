@@ -1,0 +1,11 @@
+﻿/* TEAM */
+	Devloper: Maxim Orlov
+	From: Ukraine
+
+/* SITE */
+	Last update: 31.05.2014
+	Language: English
+	Doctype: HTML5
+	Tools: Photoshop CC, Notepad++, SublimeText2, Openserver, Oklai-Koala, Git
+	Technologies: Html5, Css3, Scss
+	URL: http://orlovmax.github.io/uawebchallenge_semifinal

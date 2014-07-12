@@ -14,7 +14,7 @@
 
 Демо
 ------
-Жива демка: [http://orlovmax.github.io/uawebchallenge-semifinal](http://orlovmax.github.io/uawebchallenge-semifinal "Глянути резалт півфіналу UaWebChallenge")
+Жива демка: [http://orlovmax.github.io/uawebchallenge-semifinal](http://orlovmax.github.io/uawebchallenge_semifinal "Глянути резалт півфіналу UaWebChallenge")
 
 
 Тестові скріншоти
