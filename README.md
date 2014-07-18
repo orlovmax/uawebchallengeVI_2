@@ -10,7 +10,7 @@
 - В reset.css більшості елементів властивість `box-sizing` має значення `border-box`.
 - Розмітка валідна, а от з цсс є нюанси в плані валідності деяких цсс3 штук
 
-**Репозиторій на гітхаб** [https://github.com/orlovmax/uawebchallenge](https://github.com/orlovmax/uawebchallenge)
+**Репозиторій на гітхаб** [https://github.com/orlovmax/uawebchallenge_semifinal](https://github.com/orlovmax/uawebchallenge_semifinal)
 
 Демо
 ------
@@ -26,4 +26,4 @@
 
 ---
 
-![uaweb-semifinal template](test_screenshots/responsive/uaweb-semi_firefox-30.0_gt1400px)
+![uaweb-semifinal template](test_screenshots/responsive/uaweb-semi_firefox-30.0_gt1400px.jpg)
