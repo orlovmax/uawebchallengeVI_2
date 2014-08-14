@@ -2,7 +2,7 @@
 ======
 На верстку макета відводилось 6 годин, + адаптивність і кроссбраузерність, було круто)
 ###### Технології: Html5, Css3, JS, jQuery, Scss, reset.css, microformats.
-###### Сумісні браузери: IE8+, Firefox29.0+, Chrome34.0+, Opera21.0+, Safari5.1+, Yandex.bro14.2+
+###### Тести: IE8+, Firefox29.0, Chrome34.0, Opera21.0, Safari5.1, Yandex.bro14.2
 
 
 Пара моментів:
