@@ -242,88 +242,128 @@ $(".js-lazy").lazyload({ effect : "fadeIn", threshold : 300 });
 /* 
  * navigation script: sticky nav, anchor smooth scrolling, selecting current nav item 
 */
-$(function () {
-	'use strict';
-    //Sticky navbar. We take offset top of navbar and compare with top scroll, in result - add or remove .is-fixed class
-    var header = $('.js-header'),
-        jumbo = $('.js-jumbo'),
-		anchor = $(".js-anchor"),
-		navLinks = $(".js-link"),
-        navIcon = $('.js-toggle'),
-        navBar = $(".js-nav"),
-        navHeight = navBar.height(),
-        NavTopOffset = header.offset().top,
-		aArray = [],
-		i;
+/* 
+ * navigation script: sticky nav, anchor smooth scrolling, selecting current nav item 
+*/
 
-    $(window).scroll(function () {
-		var topScroll = $(window).scrollTop();
+;(function ( $, window, document, undefined ) {
+    var defaults = {
+        header: "js-header",
+        jumbo: "js-jumbo",
+        navAnchor: "js-anchor",
+        navLink: "js-link",
+        navIcon: "js-icon",
+        fixedHeader: "is-fixed",
+        jumboScroll: "is-scroll",
+        navToggle: "is-toggle",
+        activeLink: "is-active"
+    };
 
-		if (topScroll > NavTopOffset) {
-			header.addClass('is-fixed');
-            jumbo.addClass('is-scroll');
+    function NavKit( element, options ) {
+        this.options = $.extend( {}, defaults, options) ;
+        this.element = element;     
+        this.init();
+    }
 
-		} else {
-			header.removeClass('is-fixed');
-            jumbo.removeClass('is-scroll');
-		}
-    });
+    NavKit.prototype.init = function () {
+        var $this = $(this.element),
+            $navAnchor = $("." + this.options.navAnchor),
+            $navLink = $("." + this.options.navLink),
+            $navIcon = $("." + this.options.navIcon),
+            $header = $("." + this.options.header),
+            $jumbo = $("." + this.options.jumbo),
+            navHeight = $this.height(),
+            navTopOffset = $header.offset().top,
+            aArray = [],
+            i;
 
-    //toggle navbar
-    navIcon.on('click', function(e){
-        e.preventDefault();
-        navBar.toggleClass("is-toggle");
-    });
-
-    //Smooth anchor scroll, targeted to our nav links with .js-link class... Actually this thing was modified on csstricks
-	anchor.click(function () {
-
-		if (location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") && location.hostname === this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
-			if (target.length) {
-				$("html,body").animate({
-					scrollTop: target.offset().top - navHeight
-				}, 1000);
-				return false;
-			}
-		}
-	});
-
-	//Highlight nav list item when current section visible
-	//Originally this way is belong to http://www.callmenick.com
-    for (i = 0; i < navLinks.length; i += 1) {
-        var link = navLinks[i],
-			ahref = $(link).attr('href');
-        aArray.push(ahref);
-    } // this for loop fills the aArray with attribute href values
-
-    $(window).scroll(function () {
-        var windowPos = $(window).scrollTop(), // get the offset of the window from the top of page
-			windowHeight = $(window).height(), // get the height of the window
-			docHeight = $(document).height(),
-			navHeight = $(".js-nav").height(),
-            navActiveCurrent = $(".is-active").attr("href");
-
-        for (i = 0; i < aArray.length; i += 1) {
-            var theID = aArray[i],
-				sectPos = $(theID).offset().top - navHeight, // get the offset of the div from the top of page + except nav height
-				sectHeight = $(theID).height(); // get the height of the div in question
-            if (windowPos >= sectPos && windowPos < (sectPos + sectHeight)) {
-                $(".js-link[href='" + theID + "']").addClass("is-active");
+        $(window).scroll($.proxy(function () {
+            var topScroll = $(window).scrollTop();
+    
+            if (topScroll > navTopOffset) {
+                $header.addClass(this.options.fixedHeader);
+                $jumbo.addClass(this.options.jumboScroll);
+    
             } else {
-                $(".js-link[href='" + theID + "']").removeClass("is-active");
+                $header.removeClass(this.options.fixedHeader);
+                $jumbo.removeClass(this.options.jumboScroll);
             }
-        }
+        }, this)); 
+
+        $navIcon.on('click', $.proxy(function(e){
+           e.preventDefault();
+           $this.toggleClass(this.options.navToggle);
+        }, this));
+
+        // Smooth anchor scroll, targeted to our nav anchors 
+        // Actually this thing was modified on csstricks
+        $navAnchor.click(function () {
+            if (location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") && 
+                location.hostname === this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
+                if (target.length) {
+                $("html,body").animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
+            }
+        });
+        //Highlight nav list item when current section visible
+        //Originally this way is belong to http://www.callmenick.com
+        for(i = 0; i < $navLink.length; i += 1) {
+            var link = $navLink[i],
+                ahref = $(link).attr('href');
+                aArray.push(ahref);
+        } // this for loop fills the aArray with attribute href values
+
+        $(window).scroll($.proxy(function () {
+            var windowPos = $(window).scrollTop(), // get the offset of the window from the top of page
+                windowHeight = $(window).height(), // get the height of the window
+                docHeight = $(document).height(),
+                navHeight = $this.height(),
+                $firstSection = $("section").eq(0);
+
+            for (i = 0; i < aArray.length; i += 1) {
+                var theID = aArray[i],
+                sectPos = $(theID).offset().top - navHeight, // get the offset of the div from the top of page + except nav height
+                sectHeight = $(theID).height(); // get the height of the div in question
+
+                if (windowPos >= sectPos && windowPos < (sectPos + sectHeight)) {
+                    $navLink.filter("[href='" + theID + "']").addClass(this.options.activeLink);
+                } else {
+                    $navLink.filter("[href='" + theID + "']").removeClass(this.options.activeLink);
+                }
+            }
+        //highlight last nav list item on last section
+            if (windowPos + windowHeight === docHeight) {
+                if (!$this.find("li").filter(":last-child").find($navLink).hasClass(this.options.activeLink)) {
+                    $navLink.filter("." + this.options.activeLink).removeClass(this.options.activeLink);
+                    $this.find("li").filter(":last-child").find($navLink).addClass(this.options.activeLink);
+                }
+            }
+
         //highlight first nav item when first section has some top offset
-        if (windowPos < $("#home").offset().top) {
-            if (!$(".js-nav").find("li:first-child").find(".js-link").hasClass("is-active")) {
-                $(".js-link[href='" + navActiveCurrent + "']").removeClass("is-active");
-                $(".js-nav").find("li:first-child").find(".js-link").addClass("is-active");
+        if (windowPos < $firstSection.offset().top) {
+                if (!$this.find("li").filter(":first-child").find($navLink).hasClass(this.options.activeLink)) {
+                    $navLink.filter("." + this.options.activeLink).removeClass(this.options.activeLink);
+                    $this.find("li").filter(":first-child").find($navLink).addClass(this.options.activeLink);
+                }
             }
-        }
-    });
-});
+        }, this));
+    };
+
+    $.fn.navKit = function ( options ) {
+        return this.each(function () {          
+            new NavKit( this, options );
+        });
+    };
+
+})( jQuery, window, document );
+
+$(".js-nav").navKit();
 //Slide all this stuff
 ;(function ( $, window, document, undefined ) {
     var defaults = {
