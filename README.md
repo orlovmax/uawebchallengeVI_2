@@ -1,31 +1,19 @@
-Робота півфіналу UaWebChallenge
-======
-На верстку макета відводилось 6 годин, + адаптивність і кроссбраузерність, було круто)
+# Робота півфіналу UaWebChallengeVI - ARCHIVED
+
+## Warning! Some technologies used in this project may be out of date.
+
 ###### Технології: Html5, Css3, JS, jQuery, Scss, reset.css, microformats.
 ###### Тести: IE8+, Firefox29.0, Chrome34.0, Opera21.0, Safari5.1, Yandex.bro14.2
+UPD: Робота не в оригінальному вигляді, так як в деяких місцях рефакторив код, пробуючи нові штуки
 
-UPD:
-------
-Робота не в оригінальному вигляді, так як в деяких місцях рефакторив код, пробуючи нові штуки, проте історія все пам'ятає)
-
-Пара моментів:
----
-- В reset.css більшості елементів властивість `box-sizing` має значення `border-box`.
-- Розмітка валідна, а от з цсс є нюанси в плані валідності деяких цсс3 штук
-
-**Репозиторій на гітхаб** [https://github.com/orlovmax/uawebchallengeVI_sf](https://github.com/orlovmax/uawebchallengeVI_sf)
-
-Демо
-------
-Жива демка: [http://orlovmax.github.io/uawebchallengeVI_sf](http://orlovmax.github.io/uawebchallengeVI_sf "Глянути резалт півфіналу UaWebChallenge")
+## Демо
+[http://orlovmax.github.io/uawebchallengeVI_2](http://orlovmax.github.io/uawebchallengeVI_2 "Глянути результат півфіналу UaWebChallenge")
 
 
-Тестові скріншоти
-------
-**Скріни лежать в каталозі [test_screenshots](https://github.com/orlovmax/uawebchallengeVI_sf/tree/master/test_screenshots/)**
-
-- Тест сумісності браузерів, окрім експлореру, з нього скріни не отримав, але там все норм. [browser_compat](https://github.com/orlovmax/uawebchallengeVI_sf/tree/master/test_screenshots/browser_compat/)
-- Тест адаптивності [responsive](https://github.com/orlovmax/uawebchallengeVI_sf/tree/master/test_screenshots/responsive/)
+## Тестові скріншоти
+- Результат [test_screenshots](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/test_screenshots/)
+- Тест сумісності браузерів, окрім експлореру [browser_compat](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/test_screenshots/browser_compat/)
+- Тест адаптивності [responsive](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/test_screenshots/responsive/)
 
 ---
 
