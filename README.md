@@ -9,13 +9,13 @@ UPD: Робота не в оригінальному вигляді, так як
 
 
 ## Тестові скріншоти
-- Результат [test_screenshots](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/test_screenshots/)
-- Тест сумісності браузерів, окрім експлореру [browser_compat](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/test_screenshots/browser_compat/)
-- Тест адаптивності [responsive](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/test_screenshots/responsive/)
+- Результат [screenshots](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/screenshots/)
+- Тест сумісності браузерів, окрім експлореру [browser_compat](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/screenshots/browser_compat/)
+- Тест адаптивності [responsive](https://github.com/orlovmax/uawebchallengeVI_2/tree/master/screenshots/responsive/)
 
 ---
 
-![uaweb-semifinal template](test_screenshots/responsive/uaweb-semi_firefox-30.0_gt1400px.jpg)
+![uaweb-semifinal template](screenshots/responsive/uaweb-semi_firefox-30.0_gt1400px.jpg)
 
 ## Contents
 * [Folder structure](#folder-and-file-structure)
@@ -39,43 +39,43 @@ UPD: Робота не в оригінальному вигляді, так як
 ├── README.md
 |
 ├── _grunt/                                    * grunt build system
-|	├── grunt_tasks/                           * grunt tasks
-|	|   ├── config/                            * grunt tasks config
-|	│   |	├── paths.js
-|	│   |	├── settings.js
-|	│   |	└── aliases.js
-|	│   |
-|	|   └── task.js
-|	│
-|	├── Gruntfile.js
-|	└── package.json
+|   ├── grunt_tasks/                           * grunt tasks
+|   |   ├── config/                            * grunt tasks config
+|   │   |   ├── paths.js
+|   │   |   ├── settings.js
+|   │   |   └── aliases.js
+|   │   |
+|   |   └── task.js
+|   │
+|   ├── Gruntfile.js
+|   └── package.json
 |
 ├── screenshots/                               * responsive test screenshots
 |
 ├── dev/                                       * site source
 │   ├── images/                                * image sources
-|	│
+|   │
 │   ├── pug/                                   * templates
-|	│
+|   │
 │   ├── js/                                    * source js
-|	│
-|	├── sass/                                  * sass preprocessor styles
-|	│
+|   │
+|   ├── sass/                                  * sass preprocessor styles
+|   │
 │   ├── helpers/                               * helper files
-|	│
+|   │
 │   └── fonts/                                 * font sources
 │
 └── build/                                     * built source
-	├── index.html
-	|
-	└── static/                                * static assets
-		├── css/                               * minified styles
-		|
-		├── images/                            * minified images
-		│
-		├── js/                                * minified assembled js
-		|
-		└── fonts/                             * @font-face-ready webfonts
+    ├── index.html
+    |
+    └── static/                                * static assets
+        ├── css/                               * minified styles
+        |
+        ├── images/                            * minified images
+        │
+        ├── js/                                * minified assembled js
+        |
+        └── fonts/                             * @font-face-ready webfonts
 
 ```
 
