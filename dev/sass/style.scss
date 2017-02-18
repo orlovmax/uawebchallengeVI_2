@@ -1,0 +1,601 @@
+/* ==============================
+   $Contents
+   ==============================*/
+/**
+* Contents......................Here we are!
+* Fonts.........................Custom fonts
+* Reset.........................Reset defaults
+* Elements lib..................Import Scss elements library
+* Custom mixins and vars........Project's custom mixins and variables
+*
+* Headings and text.............Headings and paragraphs general styles
+* General styles................Abstract styles
+*  Main header..................Main header styles
+*  Jumbotron....................That big thing with slider
+*  About section................Section with articles
+*  Gallery section..............Gallery columns etc
+*  Resume section...............Blog like excerpts
+*  Main footer..................Copyrights, soc icons, design-copyright styles
+* Media queries.................Used media queries
+*  Media max-width: 1170px
+*  Media max-width: 980px
+*  Media max-width: 800px
+*  Media max-width: 640px
+*  Media max-width: 480px
+*/
+
+
+/* ==============================
+   $Fonts
+   ==============================*/
+@import "_fonts.scss";
+
+
+/* ==============================
+   $Reset
+   ==============================*/
+@import "_reset.scss";
+
+
+/* ==============================
+   $Elements lib
+   ==============================*/
+@import "libs/_elements.scss";
+
+
+/* ==============================
+   $Custom mixins and vars
+   ============================== */
+   $dark-color: #323232;
+
+   /* Just test of media mixin... I didn't use partial media queries before */
+   @mixin media($width){
+      @media screen and(max-width: #{$width}){
+         @content;
+      }
+   }
+
+   %common-button{
+      background-color: $dark-color;
+      font-family: "Ubuntu", sans-serif;
+      font-size: 9px;
+      line-height: 33px;
+      color: #fff;
+      letter-spacing: normal;
+      text-align: center;
+   }
+   %section{
+      position: relative;
+      padding-top: 50px;
+      overflow: hidden;
+      @include media(640px){padding-top: 20px;}
+
+      &:before{
+         content:"";
+         display: block;
+         position: absolute;
+         width: 1170px;
+         height: 1px;
+         top: 0px;
+         left: 50%;
+         margin-left: -585px;
+         background-color: #e5e5e5;
+      }
+
+   }
+      %section__meta{
+         float: left;
+         width: 31.6%;
+         margin-right: 2.6%;
+         padding-top: 45px;
+         @include media(640px){width: 100%; margin-right: 0; padding-top: 0;}
+      }
+         %section__title{
+            position: relative;
+            margin-bottom: 45px;
+            padding-left: 58px;
+            font-family: "SixCaps", sans-serif;
+            font-size: 52px;
+            line-height: 50px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            @include media(800px){font-size: 40px; margin-bottom: 20px;}
+            @include media(640px){padding-left: 0; text-align: center;}
+         }
+          %section__title-num{
+               display: block;
+               position: absolute;
+               bottom: 7px;
+               left: 0;
+               z-index: -1;
+               font-family: "SixCaps", sans-serif;
+               font-size: 100px;
+               line-height: 1;
+               font-weight: bold;
+               letter-spacing: 7px;
+               @include size(80px, 100px);
+               @include media(800px){font-size: 80px; height: 80px}
+               @include media(640px){display: none;}
+
+            &:before{
+               content:"";
+               display: block;
+               position: absolute;
+               width: 0;
+               height: 5px;
+               bottom: 0;
+               left: 0;
+               z-index: 0;
+               border-right: 78px solid #fff;
+               border-top: 70px solid transparent;
+               @include media(640px){display: none;}
+            }
+            &:after{
+               content:"";
+               display: block;
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               background-color: $dark-color;
+               @include size(1px, 70px);
+               @include skewX(-48);
+               @include t-origin(100%,100%);
+               @include media(640px){display: none;}
+            }
+
+         }
+         %section__descr{
+            max-width: 270px;
+            @include media(640px){max-width: 100%;}
+         }
+      %section__content{
+         @extend %clearfix;
+         float: left;
+         width: 65.8%;
+         @include media(640px){width: 100%;}
+      }
+
+/* ==============================
+   $Headings and text
+   ============================== */
+
+p{
+   margin-bottom: 25px;
+   font-size: 13px;
+   line-height: 24px;
+   color: #928e92;
+}
+
+a{
+   text-decoration: none;
+   color: #c9cbcd;
+}
+   a:hover, a.is-active{
+     color: $dark-color;
+   }
+
+/* ==============================
+   $General styles
+   ==============================*/
+   html,body{
+      @include size(100%, 100%);
+   }
+
+   body {
+      background: #fff;
+      color: $dark-color;
+      font-family: 'Ubuntu', sans-serif;
+   }
+      .container {
+         @extend %clearfix;
+         max-width: 1170px;
+         margin: 0 auto;
+         @include media(1170px){padding: 0 15px;}
+      }
+
+
+ /* ==============================
+   $Header styles
+   ==============================*/
+   .header{
+      position: relative;
+      width: 100%;
+      height: 215px;
+      padding-top: 80px;
+      background-color: #fff;
+      font-family: "SixCaps", sans-serif;
+      text-align: center;
+      @include media(980px){height: 100px; padding-top: 15px;}
+
+      &.is-fixed{
+         position: fixed;
+         height: 100px;
+         padding-top: 15px;
+         top: 0;
+         left: 0;
+         z-index: 100;
+         @include box-shadow(0,1px, 3px, 0, $dark-color);
+      }
+
+      &__logo{
+         float: left;
+         font-size: 62px;
+         line-height: 60px;
+         text-transform: uppercase;
+         letter-spacing: 6px;
+         @include media(1170px){font-size: 40px;}
+         @include media(980px){font-size: 30px;}
+
+         & span{
+            @extend %common-button;
+            display: inline-block;
+            margin-left: 15px;
+            vertical-align: middle;
+            @include size(107px,33px);
+            @include media(980px){display: none;}
+         }
+      }
+
+      &__nav{
+         float: right;
+         @include media(640px){display: none;}
+
+         & li{
+            display: inline-block;
+            position: relative;
+            padding: 0 18px;
+            @include media(980px){padding: 0 7px;}
+
+            &:last-of-type{
+               padding-right: 0;
+
+               &:after{
+                  display: none;
+               }
+            }
+            &:after{
+               content:"";
+               display: block;
+               position: absolute;
+               top: 20px;
+               right: 0;
+               background-color: #c9cbcd;
+               line-height: 50px;
+               @include size(1px, 22px);
+            }
+         }
+
+         &-link{
+            display: inline-block;
+            font-size: 50px;
+            line-height: 60px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            @include transition(all, .5);
+            @include media(1170px){font-size: 40px;}
+            @include media(980px){font-size: 30px;}
+            @include media(480px){font-size: 25px; line-height: 40px;}
+         }
+         &.is-toggle{
+            display: block;
+            position: absolute;
+            top: 100px;
+            right: 0;
+            z-index: 100;
+            background-color: #fff;
+            @include box-shadow(-3px,3px, 3px, -2px, $dark-color);
+
+            & li{
+               display: block;
+               text-align: right;
+               padding-bottom: 5px;
+
+               &:after{
+                  display: none !important;
+               }
+            }
+         }
+      }
+      &__nav-btn{
+         @extend %hidentext;
+         position: relative;
+         display: none;
+         float: right;
+         margin-top: 15px;
+         @include size(33px, 33px);
+         @include media(640px){display: block;}
+
+         &:hover{
+            &:before{
+               color: $dark-color;
+            }
+         }
+         &:before{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            content: "\e805";
+            font-family: iconic;
+            font-size: 33px;
+            color: #a6a6a6;
+            text-indent: 0;
+            outline-style: none;
+            @include transition(all, .5);
+         }
+      }
+   }
+
+/* ==============================
+   $Jumbotron styles
+   ==============================*/
+   .jumbo{
+      width: 100%;
+      text-align: center;
+
+      &.is-scroll{
+         margin-top: 100px;
+      }
+
+      &__slider{
+         position: relative;
+         overflow: hidden;
+         @include size(100%, 565px);
+         @include media(980px){height: 400px}
+         @include media(640px){height: 300px}
+         @include media(480px){height: 200px}
+
+         &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            background-color: rgba(0,0,0,0.3);
+            @include size(100%, 100%);
+         }
+      }
+      &__slide{
+         overflow: hidden;
+         @include size(100%,100%);
+
+         & img{
+            display: block;
+            width: 100%;
+            text-align: center;
+         }
+      }
+
+      &__controls{
+         display: block;
+         margin: 17px auto 23px;
+      }
+      &__control{
+         @extend %hidentext;
+         display: inline-block;
+         margin: 0 10px;
+         background-color: $dark-color;
+         cursor: pointer;
+         outline-style: none;
+         @include size(7px, 7px);
+         @include rounded(50%);
+         @include transition(background-color, .5);
+
+         &.is-active{
+            background-color: #D4D4D4;
+         }
+      }
+   }
+
+
+/* ==============================
+   $About section styles ------------------------create extends for asides
+   ==============================*/
+   .about{
+      @extend %section;
+      margin-bottom: 20px;
+
+      &__info{
+         @extend %section__meta;
+      }
+      &__title{
+         @extend %section__title;
+
+         & span{
+            @extend %section__title-num;
+         }
+      }
+      &__descr{
+         @extend %section__descr;
+      }
+
+      &__content{
+         @extend %section__content;
+      }
+      &-article{
+         float: left;
+         width: 48%;
+         margin-bottom: 20px;
+         @include media(640px){width: 100%;}
+
+         &:first-child{
+            margin-right: 4%;
+         }
+         &__img{
+            display: block;
+            max-width: 100%;
+            max-height: 160px;
+            margin:0 auto 40px;
+         }
+         &__btn{
+            @extend %common-button;
+            display: block;
+            margin-top: 45px;
+            text-transform: uppercase;
+            @include size(83px, 33px);
+         }
+      }
+   }
+
+/* ==============================
+   $Gallery styles
+   ==============================*/
+   .gall{
+      @extend %section;
+      margin-bottom: 15px;
+
+      &__info{
+         @extend %section__meta;
+      }
+      &__title{
+         @extend %section__title;
+
+         & span{
+            @extend %section__title-num;
+         }
+      }
+      &__descr{
+
+         @extend %section__descr;
+      }
+
+      &__content{
+         @extend %section__content;
+      }
+      &__column-one{
+         width: 35%;
+         margin-right: 4%;
+         float: left;
+      }
+      &__column-two{
+         width: 22%;
+         margin-right: 4%;
+         float: left;
+      }
+      &__column-three{
+         width: 35%;
+         float: left;
+      }
+      &__image{
+            display: block;
+            width: 100%;
+            margin: 0 auto 27px;
+      }
+   }
+
+/* ==============================
+   $Resume styles
+   ==============================*/
+   .resume{
+      @extend %section;
+      margin-bottom: 140px;
+      @include media(980px){margin-bottom: 70px;}
+      @include media(480px){margin-bottom: 30px;}
+
+      &__info{
+         @extend %section__meta;
+      }
+      &__title{
+         @extend %section__title;
+
+         & span{
+            @extend %section__title-num;
+         }
+      }
+      &__descr{
+         @extend %section__descr;
+      }
+
+      &__content{
+         @extend %section__content;
+         margin-top: 45px;
+         @include media(640px){margin-top: 0;}
+
+         & p{
+            max-width: 740px;
+         }
+      }
+   }
+
+/* ==============================
+   $Footer styles
+   ==============================*/
+   .footer{
+      @extend %clearfix;
+      position: relative;
+      min-height: 360px;
+      background-color: #fff;
+      text-align: center;
+      @include media(980px){min-height: 240px;}
+
+      &__copyright{
+         float: left;
+         font-size: 10px;
+         line-height: 55px;
+         text-transform: uppercase;
+         @include media(640px){float: none;}
+      }
+      &__icons{
+         float: right;
+         margin-right: -94px;
+         @include media(1366px){margin-right: 0;}
+         @include media(640px){float: none;}
+
+         & li{
+            display: inline-block;
+            margin: 0 3px;
+            font-size: 0;
+            text-align: left;
+
+            &:last-of-type{
+               margin-left: 40px;
+               @include media(480px){margin-left: 20px;}
+            }
+         }
+      }
+      &__icon{
+         display: block;
+         border: 1px solid #a6a6a6;
+         @include size(45px, 45px);
+         @include rounded(50%);
+         @include transition(all, .5);
+
+         &:hover{
+            border-color: $dark-color;
+            &:before{
+               color: $dark-color;
+            }
+         }
+
+         &:before{
+            padding-left: 15px;
+            font-family: iconic;
+            font-size: 15px;
+            line-height: 45px;
+            color: #a6a6a6;
+            @include transition(all, .5);
+         }
+
+         $icons: (gplus: '\e804', pin: '\e801', tw: '\e802', fb: '\e803', gotop: '\e800');
+         @each $icon, $symbol in $icons {
+            &.#{$icon}:before{
+               content:"#{$symbol}";
+            }
+         }
+      }
+      &__design-copyright{
+         @extend %hidentext;
+         display: block;
+         position: absolute;
+         left: 50%;
+         margin-left: -283px;
+         bottom: 120px;
+         background: url("../images/copyright.png") 0 0 no-repeat;
+         @include size(562px, 71px);
+         @include bg-size(cover);
+         @include media(980px){bottom: 60px;}
+         @include media(640px){width: 281px; height: 35px; margin-left: -140px}
+      }
+   }
+

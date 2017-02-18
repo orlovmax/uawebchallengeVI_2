@@ -1,0 +1,167 @@
+doctype html
+html(lang='ru')
+	head
+		meta(charset='utf-8')
+		title James Smith
+		meta(name='description', content='James Smith personal page')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		// Opengraph
+		meta(property='og:type', content='website')
+		meta(property='og:title', content='James Smith')
+		meta(property='og:description', content='James Smith personal page')
+		meta(property='og:image', content='http://orlovmax.github.io/uawebchallengeVI_2/static/images/meta-picture.jpg')
+		meta(property='og:url', content='http://orlovmax.github.io/uawebchallengeVI_2')
+		// TwitterCard
+		meta(name='twitter:card', content='summary')
+		meta(name='twitter:title', content='James Smith')
+		meta(name='twitter:description', content='James Smith personal page')
+		meta(name='twitter:image:src', content='http://orlovmax.github.io/uawebchallengeVI_2/static/images/meta-picture.jpg')
+		meta(name='twitter:creator', content='@orlovmax_im')
+		meta(name='twitter:site', content='@orlovmax_im')
+		meta(name='twitter:url', content='http://orlovmax.github.io/uawebchallengeVI_2')
+		// favicons
+		link(rel='shortcut icon', href='favicon.ico')
+		link(rel='shortcut icon', href='static/images/icons/favicon.png', type='image/x-icon')
+		link(rel='apple-touch-icon-precomposed', sizes='144x144', href='static/images/icons/apple-touch-icon-144x144-precomposed.png')
+		link(rel='apple-touch-icon-precomposed', sizes='114x114', href='static/images/icons/apple-touch-icon-114x114-precomposed.png')
+		link(rel='apple-touch-icon-precomposed', sizes='72x72', href='static/images/icons/apple-touch-icon-72x72-precomposed.png')
+		link(rel='apple-touch-icon-precomposed', href='static/images/icons/apple-touch-icon-precomposed.png')
+
+		link(rel='stylesheet', href='static/css/style.min.css')
+		<!--[if lt IE 8]><link rel="stylesheet" href="static/css/ie-out.min.css"><![endif]-->
+
+		<!--[if IE]><script src="static/js/ie.min.js"></script><![endif]-->
+
+	body
+		// Main header
+		header.header.js-header
+			.container
+				h1.header__logo
+					| James Smith
+					span personal page
+				a.header__nav-btn.js-icon(href='#') Open menu
+
+				// Main navbar
+				nav.header__nav.js-nav
+					ul
+						li
+							a.header__nav-link.js-link.js-anchor.is-active(href='#home') Home
+						li
+							a.header__nav-link.js-link.js-anchor(href='#about') About
+						li
+							a.header__nav-link.js-link.js-anchor(href='#folio') Folio
+						li
+							a.header__nav-link Blog
+						li
+							a.header__nav-link Mail me
+					// <a class="header__nav-close" href="#header">Close menu</a>
+				// Main navbar end
+		// Main header end
+
+		// Jumbotron
+		section#home.jumbo.js-jumbo
+			ul.jumbo__slider
+				li.jumbo__slide.js-slide
+					img(src='static/images/jumbo-1.jpg', alt='Some picture')
+				li.jumbo__slide.js-slide
+					img.js-lazy(src='static/images/placeholder.png', data-src='static/images/jumbo-2.jpg', alt='Some picture')
+				li.jumbo__slide.js-slide
+					img.js-lazy(src='static/images/placeholder.png', data-src='static/images/jumbo-3.jpg', alt='Some picture')
+				li.jumbo__slide.js-slide
+					img.js-lazy(src='static/images/placeholder.png', data-src='static/images/jumbo-4.jpg', alt='Some picture')
+				li.jumbo__slide.js-slide
+					img.js-lazy(src='static/images/placeholder.png', data-src='static/images/jumbo-5.jpg', alt='Some picture')
+			.jumbo__controls
+				a.jumbo__control.js-control(href='#') 1
+				a.jumbo__control.js-control(href='#') 2
+				a.jumbo__control.js-control(href='#') 3
+				a.jumbo__control.js-control(href='#') 4
+				a.jumbo__control.js-control(href='#') 5
+		// Jumbotron section end
+
+		// About section
+		section#about.about
+			.container
+				aside.about__info
+					h2.about__title
+						span 01
+						| About me
+					p.about__descr
+						| Bulum iaculis lacinia est. Proin dictum elem velit. Fusce euismod consequat ante. Lorem ipsm dolor sit met consectetuer adipiscing elit ellesque sed dolor.
+				section.about__content
+					article.about-article
+						img.about-article__img.js-lazy(src='static/images/placeholder.png', data-src='static/images/about-1.jpg', alt='Something about me')
+						p
+							| Bulum iaculis lacinia est. Proin dictum elem velit. Fusce euismod consequat ante. Lorem ipsm dolor sit met consectetuer adipiscing elitlesque sed dolor. Aliquam congue fermtum cumsan nulla vel diam.
+						p
+							| Sed in lacus ut enim adipiscing aliqulla vene natis. In pede mi aliquet sit amet euismod in uctor ut ligulaiquam dapibus tincidunt metus. Praesent justo dol
+						a.about-article__btn(href='#') Read more
+					article.about-article
+						img.about-article__img.js-lazy(src='static/images/placeholder.png', data-src='static/images/about-2.jpg', alt='Something about me')
+						p
+							| Bulum iaculis lacinia est. Proin dictum elem velit. Fusce euismod consequat ante. Lorem ipsm dolor sit met consectetuer adipiscing elitlesque sed dolor. Aliquam congue fermtum cumsan nulla vel diam.
+						p
+							| Sed in lacus ut enim adipiscing aliqulla vene natis. In pede mi aliquet sit amet euismod in uctor ut ligulaiquam dapibus tincidunt metus. Praesent justo dol
+		// About section end
+
+		// Gallery section
+		section#folio.gall
+			.container
+				aside.gall__info
+					h2.gall__title
+						span 02
+						|  Gallery
+					p.gall__descr
+						| Bulum iaculis lacinia est. Proin dictum elem
+						| velit. Fusce euismod consequat ante. Lorem ipsm dolor sit met consectetuer adipiscing elit
+				section.gall__content
+					.gall__column-one
+						img.gall__image.js-lazy(src='static/images/placeholder.png', data-src='static/images/gall-1.jpg', alt='Some text')
+						img.gall__image.js-lazy(src='static/images/placeholder.png', data-src='static/images/gall-4.jpg', alt='Some text')
+					.gall__column-two
+						img.gall__image.js-lazy(src='static/images/placeholder.png', data-src='static/images/gall-2.jpg', alt='Some text')
+						img.gall__image.js-lazy(src='static/images/placeholder.png', data-src='static/images/gall-5.jpg', alt='Some text')
+					.gall__column-three
+						img.gall__image.js-lazy(src='static/images/placeholder.png', data-src='static/images/gall-3.jpg', alt='Some text')
+						img.gall__image.js-lazy(src='static/images/placeholder.png', data-src='static/images/gall-6.jpg', alt='Some text')
+		// Gallery section end
+
+		// Resume section
+		section.resume
+			.container
+				aside.resume__info
+					h2.resume__title
+						span 03
+						|  Who am I
+					p.resume__descr
+						| Bulum iaculis lacinia est. Proin dictum elem velit. Fusce euismod consequat ante. Lorem ipsm dolor sit met consectetuer adipiscing elit ellesque sed dolor.
+				section.resume__content
+					p
+						| Bulum iaculis lacinia est. Proin dictum elemlit. Fusce euismod consequat ante. Lorem ipsm dolor sit onsectetuer adipiscing elitlesque sed dolor. Aliquam congue fermtum cumsan nulla vel diamed in lacus ut enim adipisci aliqulla vene natis. In pede mi aliquet sit amet euismod in uctor ut ligulaiquam dapibus tincidunt metus. Praesent justo dor lobortis quis lobortis dignisim pulvin.
+					p
+						| Vestibulum sed ante. Donec sagittis euismod pured ut perspiciatis unde omnis iste natus erit voluptatem accusanti loremque laudantium totam rem ap eriameue ipsa quae ab illo inis et quasi architecto beatae vit dicta sunt explicabo. Nemo enim ipsamoluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eoui ratione luptatem sequi nesciunt. Neque porro quisquam est qui dolore.
+		// Blog section end
+
+		// Page footer
+		footer.footer
+			.container
+				span.footer__copyright
+					| James smith © 2014 •
+					a(href='#') Privacy Policy
+				ul.footer__icons
+					li
+						a.footer__icon.gplus(href='#', title='I am on Google+') I am on Google+
+					li
+						a.footer__icon.pin(href='#', title='My pinterest') My pinterest
+					li
+						a.footer__icon.tw(href='#', title='Follow me on twitter') Follow me on twitter
+					li
+						a.footer__icon.fb(href='#', title='I am on Facebook') I am on Facebook
+					li
+						a.footer__icon.gotop.js-anchor(href='#home', title='To top!') To top!
+				a.footer__design-copyright(href='#', title='Designed by template monster') Designed by template monster
+		// Page footer end
+
+		<!--[if lt IE 8]><div class="browser-msg"><h2 class="browser-msg__title">Houston we've had a problem</h2><p class="browser-msg__info">It looks like you’re using an insecure version of Internet Explorer.<br> Using an outdated browser makes your computer unsafe.</p><h3 class="browser-msg__sub">For the best experience on the web, please update your browser.</h3><ul class="browser-msg__list"><li class="browser-msg__item"><a href="http://www.google.com/chrome" title="Google Chrome"><span class="browser-item__img chrome"></span><h2 class="browser-item__title">Google Chrome</h2><p class="browser-item__descr">Built for the modern web and designed to be fast in every possible way.</p><p class="browser-item__note">Visit official website for more info</p></a></li><li class="browser-msg__item"><a href="http://www.firefox.com/" title="Mozilla Firefox"><span class="browser-item__img firefox"></span><h2 class="browser-item__title">Mozilla Firefox</h2><p class="browser-item__descr">Committed to you, your privacy and an open Web.</p><p class="browser-item__note">Visit official website for more info</p></a></li><li class="browser-msg__item"><a href="http://www.apple.com/safari/" title="Apple Safari"><span class="browser-item__img safari"></span><h2 class="browser-item__title">Safari</h2><p class="browser-item__descr">The smartest way to surf. Wait less and browse more.</p><p class="browser-item__note">Visit official website for more info</p></a></li><li class="browser-msg__item"><a href="http://www.opera.com/" title="Opera"><span class="browser-item__img opera"></span><h2 class="browser-item__title">Opera</h2><p class="browser-item__descr">Made to discover. Get a better experience.</p><p class="browser-item__note">Visit official website for more info</p></a></li><li class="browser-msg__item"><a href="http://windows.microsoft.com/ie" title="Microsoft Internet Explorer"><span class="browser-item__img ie"></span><h2 class="browser-item__title">Internet Explorer</h2><p class="browser-item__descr">Fast and fluid. Stay safer as you browse.</p><p class="browser-item__note">Visit official website for more info</p></a></li></ul><p class="browser-msg__info">Thank you :)</p></div><![endif]-->
+
+		script(src='static/js/body.min.js')
